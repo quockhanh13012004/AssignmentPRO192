@@ -32,4 +32,12 @@ private List<Brand> brandList;
         brandList.add(new Brand(id, name, sound, price));
         return true;
     }
+     public Brand getBrandById(String id) {
+        for(Brand brand: brandList) {
+            if(brand.getId().equalsIgnoreCase(id)) {
+                return brand;
+            }
+        }
+        return null;
+    }
 }
