@@ -13,5 +13,23 @@ import java.lang.*;
 
 
 public class BrandList extends ArrayList<Brand> {
+private List<Brand> brandList;
+    private String brandFile;
+    private String carFile;
 
+    public BrandList(String brandFile, String carFile) {
+        brandList = new LinkedList<>();
+        this.brandFile = brandFile;
+        this.carFile = carFile;
+        loadBrand();
+        loadCar();
+    }
+
+    public boolean addBrand(String id, String name, String sound, double price) {
+        if(getBrandById(id) != null) {
+            return false;
+        }
+        brandList.add(new Brand(id, name, sound, price));
+        return true;
+    }
 }
